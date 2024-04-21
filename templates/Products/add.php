@@ -15,12 +15,12 @@ $this->Breadcrumbs->add([
 ?>
 
 <div class="card card-primary card-outline">
-    <?= $this->Form->create($product, ['valueSources' => ['query', 'context']]) ?>
+    <?= $this->Form->create($product, ['enctype' => 'multipart/form-data'], ['valueSources' => ['query', 'context']]) ?>
     <div class="card-body">
         <?= $this->Form->control('name') ?>
         <?= $this->Form->control('total') ?>
         <?= $this->Form->control('price') ?>
-        <?= $this->Form->control('image') ?>
+        <?= $this->Form->control('image', ['type' => 'file']) ?>
         <?= $this->Form->control('deskripsi') ?>
         <?= $this->Form->control('suplier_id', ['options' => $supliers, 'class' => 'form-control']) ?>
         <?= $this->Form->control('category_id', ['options' => $categories, 'class' => 'form-control']) ?>

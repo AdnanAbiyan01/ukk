@@ -20,9 +20,9 @@ class CategoriesFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'name' => 'Lorem ip',
-                'created' => '2024-04-20 15:44:03',
-                'modified' => '2024-04-20 15:44:03',
+                'name' => 'Lorem ipsum dolor sit amet',
+                'created' => '2024-04-21 13:29:36',
+                'modified' => '2024-04-21 13:29:36',
             ],
         ];
         parent::init();

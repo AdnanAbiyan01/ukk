@@ -36,24 +36,22 @@ $this->Breadcrumbs->add([
                     <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('total') ?></th>
                     <th><?= $this->Paginator->sort('price') ?></th>
+                    <th><?= $this->Paginator->sort('image') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
-                    <th><?= $this->Paginator->sort('suplier_id') ?></th>
-                    <th><?= $this->Paginator->sort('category_id') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($products as $product) : ?>
+                <?php foreach ($products as $id=>$product) : ?>
                     <tr>
-                        <td><?= $this->Number->format($product->id) ?></td>
+                        <td><?= $this->Number->format($id + 1) ?></td>
                         <td><?= h($product->name) ?></td>
                         <td><?= $this->Number->format($product->total) ?></td>
                         <td><?= $this->Number->format($product->price) ?></td>
+                        <td><?= $this->Html->image('../upload/'.$product->image, ['width' => '100px']) ?></td>
                         <td><?= h($product->created) ?></td>
                         <td><?= h($product->modified) ?></td>
-                        <td><?= $product->has('suplier') ? $this->Html->link($product->suplier->name, ['controller' => 'Supliers', 'action' => 'view', $product->suplier->id]) : '' ?></td>
-                        <td><?= $product->has('category') ? $this->Html->link($product->category->name, ['controller' => 'Categories', 'action' => 'view', $product->category->id]) : '' ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $product->id], ['class' => 'btn btn-xs btn-outline-primary', 'escape' => false]) ?>
                             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $product->id], ['class' => 'btn btn-xs btn-outline-primary', 'escape' => false]) ?>

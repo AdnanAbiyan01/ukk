@@ -46,7 +46,20 @@ class ProductsController extends AppController
     {
         $product = $this->Products->newEmptyEntity();
         if ($this->request->is('post')) {
+            $files = $this->request->getUploadedFiles();
+            $files['image']->getStream();
+            $files['image']->getSize();
+            $files['image']->getClientFileName();
+
+            $myname = $this->request->getData()['image']->getClientFileName();
+
+            $myext = substr(strchr($myname, "."), 1);
+
+            $mypath = "upload/".$myname.".".$myext;
             $product = $this->Products->patchEntity($product, $this->request->getData());
+            $product->image = $myname.".".$myext;
+            $files['image']->moveTo(WWW_ROOT.$mypath);
+
             if ($this->Products->save($product)) {
                 $this->Flash->success(__('The product has been saved.'));
 

@@ -25,6 +25,10 @@ $this->Breadcrumbs->add([
                 <td><?= h($product->name) ?></td>
             </tr>
             <tr>
+                <th><?= __('Image') ?></th>
+                <td><?= h($product->image) ?></td>
+            </tr>
+            <tr>
                 <th><?= __('Suplier') ?></th>
                 <td><?= $product->has('suplier') ? $this->Html->link($product->suplier->name, ['controller' => 'Supliers', 'action' => 'view', $product->suplier->id]) : '' ?></td>
             </tr>
@@ -66,15 +70,6 @@ $this->Breadcrumbs->add([
             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $product->id], ['class' => 'btn btn-secondary']) ?>
             <?= $this->Html->link(__('Cancel'), ['action' => 'index'], ['class' => 'btn btn-default']) ?>
         </div>
-    </div>
-</div>
-
-<div class="view text card">
-    <div class="card-header">
-        <h3 class="card-title"><?= __('Image') ?></h3>
-    </div>
-    <div class="card-body">
-        <?= $this->Text->autoParagraph(h($product->image)); ?>
     </div>
 </div>
 
