@@ -20,6 +20,7 @@ $this->Breadcrumbs->add([
         <?= $this->Form->control('name') ?>
         <?= $this->Form->control('phone_number') ?>
         <?= $this->Form->control('alamat') ?>
+        <?= $this->Form->control('password') ?>
     </div>
     <div class="card-footer d-flex">
         <div class="ml-auto">

@@ -76,6 +76,11 @@ class CustomersTable extends Table
             ->scalar('alamat')
             ->allowEmptyString('alamat');
 
+        $validator
+            ->scalar('password')
+            ->requirePresence('password', 'create')
+            ->notEmptyString('password');
+
         return $validator;
     }
 }
